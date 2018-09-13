@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: htmlhead">
+<meta charset="UTF-8">
+</head>
+<body>
+	<div class="container">
+		<nav th:replace="layout :: menu">(menu)</nav>
+		<div class="border border-dark">
+
+			<table class="table">
+
+				<form th:action="@{/cliente/(form)}" th:object="${cliente}" action="#" method="post">
+					<input type="hidden" id="txtid" th:field="*{idCliente}"/>
+					<div class="form-group">
+					<tr>
+						<th scope="col" align="center" for="txtnome">Nome</th>
+						<td th="col"><input type="text" class="form-control" id="txtnome" th:field="*{nome}" placeholder="Nome"></td>
+					</tr>
+					
+					<tr>
+						<th scope="col">CEP</th>
+						<td th="col"><input type="text" class="form-control" id="txtcep" th:field="*{CEP}"placeholder="CEP"></td>
+					</tr>
+					<tr>
+						<th scope="col">Telefone</th>
+						<td th="col"><input type="text" class="form-control" id="txttelefone" th:field="*{telefone}" placeholder="Telefone"></td>
+					</tr>
+					<tr>
+						<th scope="col">CPF</th>
+						<td th="col"><input type="text" name="CPF" class="form-control" id="txtcpf" th:field="*{CPF}" placeholder="CPF"></td>
+					</tr>
+					<tr>
+						<th scope="col">Cidade</th>
+						<td th="col"><select class="form-control" id="slccidade" th:field="*{cidade}">
+                            <option th:each="umacidade : ${listaCidades}" th:value="${umacidade.id}" th:text="${umacidade.nome}"></option>
+                        </select></td>
+					</tr>
+					<tr>
+						<th scope="col">Bairro</th>
+						<td th="col"><input type="text" class="form-control" id="txtbairro" th:field="*{bairro}" placeholder="Bairro"></td>
+					</tr>
+					<tr>
+						<th scope="col">Rua</th>
+						<td th="col"><input type="text" class="form-control" id="txtrua" th:field="*{rua}" placeholder="Rua"></td>
+					</tr>
+					<tr>
+						<th scope="col">Número</th>
+						<td th="col"><input type="text" class="form-control" id="txtnumero" th:field="*{numero}" placeholder="Número"></td>
+					</tr>
+					<tr>
+						<td scope="col">
+							<button type="submit" class="btn btn-primary">Salvar Dados</button>
+						</td>
+						<td scope="col">
+							<button type="reset" class="btn btn-primary">Limpar Dados</button>
+						</td>
+					</tr>
+					</div>
+				</form>
+			</table>
+		</div>
+	</div>
+	<div th:include="layout :: footer" id="footer">(footer)</div>
+	<script type="text/javascript">
+            $(function () {
+                $("#txtcpf").mask("999.999.999-99");
+                $("#txtcep").mask("99999-999");
+                $("#txttelefone").mask("(99) 99999-9999");
+            });
+        </script>
+</body>
+</html>

@@ -20,7 +20,7 @@ import br.univille.eats.service.MyUserDetailsService;
 @EnableGlobalMethodSecurity(securedEnabled = true,prePostEnabled=true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private String[] resources = new String[]{
-            "/","/about", "/register/**","/webjars/**","/include/**",
+            "/register/**","/webjars/**","/include/**",
             "/css/**","/icons/**","/image/**","/js/**","/layer/**"
     };
 	@Autowired
@@ -56,12 +56,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 			.formLogin()
             .loginPage("/login")
-            .defaultSuccessUrl("/home")
             .permitAll()
         .and()
 	        .logout()
 	        .logoutUrl("/logout")
-	        .logoutSuccessUrl("/home")
+	        .logoutSuccessUrl("/login")
 	        .invalidateHttpSession(true)
 	        .permitAll();
 		

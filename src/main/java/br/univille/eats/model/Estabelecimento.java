@@ -19,7 +19,6 @@ public class Estabelecimento {
 	@NotNull
     @Length(min=1, max=1000, message="O tamanho do nome deve ser entre {min} e {max}")
 	private String CNPJ;
-    private int pagamento;
     private String CEP;
     private String numero;
     private String telefone;
@@ -29,6 +28,9 @@ public class Estabelecimento {
     
     @ManyToOne(cascade= {CascadeType.REFRESH,CascadeType.MERGE})
     private Cidade cidade = new Cidade();
+    
+    @ManyToOne(cascade= {CascadeType.REFRESH,CascadeType.MERGE})
+    private Pagamento pay = new Pagamento();
     
     public Cidade getCidade() {
         return cidade;
@@ -49,11 +51,11 @@ public class Estabelecimento {
 	public void setCNPJ(String cNPJ) {
 		CNPJ = cNPJ;
 	}
-	public int getPagamento() {
-		return pagamento;
+	public Pagamento getPay() {
+		return pay;
 	}
-	public void setPagamento(int pagamento) {
-		this.pagamento = pagamento;
+	public void setPay(Pagamento pay) {
+		this.pay = pay;
 	}
 	public String getCEP() {
 		return CEP;

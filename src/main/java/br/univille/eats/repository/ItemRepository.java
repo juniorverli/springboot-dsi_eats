@@ -3,10 +3,9 @@ package br.univille.eats.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.univille.eats.model.Cidade;
+import br.univille.eats.model.Item;
 
 @Repository
-public interface CidadeRepository extends JpaRepository<Cidade, Long>{
-	Cidade findByNome(String cidade);
+public interface ItemRepository extends JpaRepository<Item, Long>{
 
 }

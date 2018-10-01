@@ -23,6 +23,15 @@ public class Produto {
 	@ManyToOne(cascade= {CascadeType.REFRESH,CascadeType.MERGE})
     private Estabelecimento estabelecimento = new Estabelecimento();
 	
+	@ManyToOne(cascade= {CascadeType.REFRESH,CascadeType.MERGE})
+    private Item item = new Item();
+	
+	public Item getItem() {
+		return item;
+	}
+	public void setItem(Item item) {
+		this.item = item;
+	}
 	public long getIdProd() {
 		return idProd;
 	}

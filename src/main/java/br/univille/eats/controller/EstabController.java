@@ -18,8 +18,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.univille.eats.model.Cidade;
 import br.univille.eats.model.Estabelecimento;
+import br.univille.eats.model.Pagamento;
 import br.univille.eats.repository.CidadeRepository;
 import br.univille.eats.repository.EstabRepository;
+import br.univille.eats.repository.PagamentoRepository;
 
 @Controller
 @RequestMapping("/estabelecimento")
@@ -29,6 +31,8 @@ public class EstabController {
 	private EstabRepository estabRepository; 
 	@Autowired
 	private CidadeRepository cidadeRepository; 
+	@Autowired
+	private PagamentoRepository pagamentoRepository; 
 
 	@GetMapping("")
 	public ModelAndView index() {
@@ -39,8 +43,17 @@ public class EstabController {
 	@GetMapping("/novo")
     public ModelAndView createForm(@ModelAttribute Estabelecimento estabelecimento) {
         List<Cidade> listaCidades = cidadeRepository.findAll();
-        return new ModelAndView("estabelecimento/form","listaCidades",listaCidades);
+        List<Pagamento> payment = pagamentoRepository.findAll();
+        
+        HashMap<String, Object> dados = new HashMap<String, Object>();
+        dados.put("listaCidades", listaCidades);
+        dados.put("payment", payment);
+        
+        
+        return new ModelAndView("estabelecimento/form",dados);
+        
     }
+	
 	@PostMapping(params="form")
     public ModelAndView save(@Valid Estabelecimento estabelecimento, BindingResult result, RedirectAttributes redirect) {
         

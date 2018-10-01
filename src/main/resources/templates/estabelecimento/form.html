@@ -50,7 +50,9 @@
 					</tr>
 					<tr>
 						<th scope="col">Forma de Pagamento</th>
-						<td th="col"><input type="text" class="form-control" id="txtpagamento" th:field="*{Pagamento}" placeholder="Pagamento"></td>
+						<td th="col"><select class="form-control" id="slcpagamento" th:field="*{pay}">
+                            <option th:each="payment : ${payment}" th:value="${payment.id}" th:text="${payment.pay}"></option>
+                        </select></td>
 					</tr>
 					<tr>
 						<td scope="col">

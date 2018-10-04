@@ -43,11 +43,11 @@ public class EstabController {
 	@GetMapping("/novo")
     public ModelAndView createForm(@ModelAttribute Estabelecimento estabelecimento) {
         List<Cidade> listaCidades = cidadeRepository.findAll();
-        List<Pagamento> payment = pagamentoRepository.findAll();
+        List<Pagamento> listaPagamentos = pagamentoRepository.findAll();
         
         HashMap<String, Object> dados = new HashMap<String, Object>();
         dados.put("listaCidades", listaCidades);
-        dados.put("payment", payment);
+        dados.put("listaPagamentos", listaPagamentos);
         
         
         return new ModelAndView("estabelecimento/form",dados);
@@ -65,9 +65,11 @@ public class EstabController {
 	@GetMapping(value="/alterar/{idEstab}")
     public ModelAndView alterarForm(@PathVariable("idEstab") Estabelecimento estabelecimento) {
 		List<Cidade> listaCidades = cidadeRepository.findAll();
+		List<Pagamento> listaPagamentos = pagamentoRepository.findAll();
         HashMap<String, Object> dados = new HashMap<String, Object>();
         dados.put("estabelecimento",estabelecimento);
         dados.put("listaCidades",listaCidades);
+        dados.put("listaPagamentos", listaPagamentos);
         
         return new ModelAndView("estabelecimento/form",dados);
     }

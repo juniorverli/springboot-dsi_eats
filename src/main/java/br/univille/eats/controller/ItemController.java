@@ -41,7 +41,7 @@ public class ItemController {
 	@GetMapping("/novo")
 	public ModelAndView createForm(@ModelAttribute Item item) {
 		List<Estabelecimento> listaEstab = estabRepository.findAll();
-		return new ModelAndView("produto/form", "listaEstab", listaEstab);
+		return new ModelAndView("item/form", "listaEstab", listaEstab);
 	}
 	@PostMapping(params="form")
 	public ModelAndView save(@Valid Item item, BindingResult result, RedirectAttributes redirect) {
@@ -54,7 +54,7 @@ public class ItemController {
 	@GetMapping(value="/alterar/{idItem}")
 	public ModelAndView alterarForm(@PathVariable("idItem") Item item) {
 		List<Estabelecimento> listaItem = estabRepository.findAll();
-		return new ModelAndView("produto/form","item",listaItem);
+		return new ModelAndView("item/form","item",listaItem);
 	}
 
 	@GetMapping(value="remover/{idItem}")

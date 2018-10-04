@@ -4,38 +4,24 @@
 	<body>
 		<div class="container">
 			<nav th:replace="layout :: menu">(menu)</nav>
-			<a href="form.html" th:href="@{/estabelecimento/novo}" class="btn btn-primary btn-lg" role="button">Novo</a>
+			<a href="form.html" th:href="@{/produto/novo}" class="btn btn-primary btn-lg" role="button">Novo</a>
  			<div class="border border-dark">
 				<table class="table">
 					<thead class="thead-light"> 
 						<tr>
-							<th scope="col">Razão Social</th>
-							<th scope="col">CEP</th>
-							<th scope="col">Telefone</th>
-							<th scope="col">Estado</th>
-							<th scope="col">Cidade</th>
-							<th scope="col">Bairro</th>
-							<th scope="col">Rua</th>
-							<th scope="col">Número</th>
-							<th scope="col">CNPJ</th>
-							<th scope="col">Forma de Pagamento</th>
+							<th scope="col">Estabelecimento</th>
+							<th scope="col">ID Item</th>
+							<th scope="col">Nome do Item</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr scope="row" th:each="umestabelecimento : ${listaestab}">
-							<td th:text="${umestabelecimento.razao}"></td>
-							<td th:text="${umestabelecimento.CEP}"></td>
-							<td th:text="${umestabelecimento.telefone}"></td>
-							<td th:text="${umestabelecimento.cidade.estado}"></td>
-							<td th:text="${umestabelecimento.cidade.nome}"></td>
-							<td th:text="${umestabelecimento.bairro}"></td>
-							<td th:text="${umestabelecimento.rua}"></td>
-							<td th:text="${umestabelecimento.numero}"></td>
-							<td th:text="${umestabelecimento.CNPJ}"></td>
-							<td th:text="${umestabelecimento.pagamento.pay}"></td>
+						<tr scope="row" th:each="umitem : ${listaItem}">
+							<td th:text="${umitem.estabelecimento.razao}"></td>
+							<td th:text="${umitem.idItem}"></td>
+							<td th:text="${umitem.item}"></td>
 						<td>
-							<a href="form.html" th:href="@{'/estabelecimento/alterar/' + ${umestabelecimento.idEstab}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
-							<a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${umestabelecimento.idEstab}">Excluir</a>
+							<a href="form.html" th:href="@{'/produto/alterar/' + ${umprod.idProd}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
+							<a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${umprod.idProd}">Excluir</a>
 						</td>					
 					
 						</tr>						
@@ -71,7 +57,7 @@
 				  var button = $(event.relatedTarget)
 				  var recipient = button.data('id')
 				  var modal = $(this)
-				  modal.find('#btnConf').attr("href","/estabelecimento/remover/" + recipient)
+				  modal.find('#btnConf').attr("href","/produto/remover/" + recipient)
 				})
 	       /*]]>*/
 	    </script> 

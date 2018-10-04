@@ -29,15 +29,24 @@ public class Estabelecimento {
     @ManyToOne(cascade= {CascadeType.REFRESH,CascadeType.MERGE})
     private Cidade cidade = new Cidade();
     
-    @ManyToOne(cascade= {CascadeType.REFRESH,CascadeType.MERGE})
-    private Pagamento pay = new Pagamento();
     
-    public Cidade getCidade() {
+    @ManyToOne(cascade= {CascadeType.REFRESH,CascadeType.MERGE})
+    private Pagamento pagamento = new Pagamento();
+    
+        
+	public Cidade getCidade() {
         return cidade;
     }
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
     }
+    
+    public Pagamento getPagamento() {
+		return pagamento;
+	}
+	public void setPagamento(Pagamento pagamento) {
+		this.pagamento = pagamento;
+	}
     
 	public long getIdEstab() {
 		return idEstab;
@@ -50,12 +59,6 @@ public class Estabelecimento {
 	}
 	public void setCNPJ(String cNPJ) {
 		CNPJ = cNPJ;
-	}
-	public Pagamento getPay() {
-		return pay;
-	}
-	public void setPay(Pagamento pay) {
-		this.pay = pay;
 	}
 	public String getCEP() {
 		return CEP;

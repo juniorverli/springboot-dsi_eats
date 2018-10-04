@@ -49,9 +49,9 @@
 						<td th="col"><input type="text" class="form-control" id="txtnumero" th:field="*{numero}" placeholder="Número"></td>
 					</tr>
 					<tr>
-						<th scope="col">Forma de Pagamento</th>
-						<td th="col"><select class="form-control" id="slcpagamento" th:field="*{pay}">
-                            <option th:each="payment : ${payment}" th:value="${payment.id}" th:text="${payment.pay}"></option>
+						<th scope="col">Formas de Pagamento</th>
+						<td th="col"><select class="form-control" id="slcpagamento" th:field="*{pagamento}">
+                            <option th:each="umpagamento : ${listaPagamentos}" th:value="${umpagamento.id}" th:text="${umpagamento.pay}"></option>
                         </select></td>
 					</tr>
 					<tr>

@@ -17,9 +17,12 @@ public class Item {
 	    @GeneratedValue(strategy=GenerationType.IDENTITY)
 		private long idItem;
 		@NotNull
-	    @Length(min=2, max=1000, message="O tamanho do nome deve ser entre {min} e {max}")
-		private String item;
+		
 		private int quantidade;
+		
+	    //@Length(min=2, max=1000, message="O tamanho do nome deve ser entre {min} e {max}")
+		private String nome;
+		
 		
 		@ManyToOne(cascade= {CascadeType.REFRESH,CascadeType.MERGE})
 	    private Estabelecimento estabelecimento = new Estabelecimento();
@@ -37,17 +40,18 @@ public class Item {
 		public void setIdItem(long idItem) {
 			this.idItem = idItem;
 		}
-		public String getItem() {
-			return item;
-		}
-		public void setItem(String item) {
-			this.item = item;
-		}
 		public int getQuantidade() {
 			return quantidade;
 		}
 		public void setQuantidade(int quantidade) {
 			this.quantidade = quantidade;
 		}
+		public String getNome() {
+			return nome;
+		}
+		public void setNome(String nome) {
+			this.nome = nome;
+		}
+		
 		
 }

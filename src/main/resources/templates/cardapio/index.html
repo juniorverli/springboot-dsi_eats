@@ -9,12 +9,16 @@
 				<table class="table">
 					<thead class="thead-light">
 						<tr>
+							<th scope="col">Estabelecimento</th>
+							<th scope="col">ID Cardapio</th>
 							<th scope="col">Data Inicio</th>
 							<th scope="col">Data Fim</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr scope="row" th:each="umcardapio : ${listaCardapio}">
+							<td th:text="${umcardapio.estabelecimento.razao}"></td>
+							<td th:text="${umcardapio.idCardapio}"></td>
 							<td th:text="${#dates.format(umcardapio.DataInicio, 'dd/MM/yyyy')}"></td>
 							<td th:text="${#dates.format(umcardapio.DataFim, 'dd/MM/yyyy')}"></td>
 							<td>

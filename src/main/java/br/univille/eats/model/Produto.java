@@ -17,6 +17,9 @@ public class Produto {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long idProd;
 	@NotNull
+	
+	private int quantidade;
+	
     @Length(min=2, max=1000, message="O tamanho do nome deve ser entre {min} e {max}")
 	private String prod;
 	
@@ -49,6 +52,12 @@ public class Produto {
 	}
 	public void setProd(String prod) {
 		this.prod = prod;
+	}
+	public int getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 
 }

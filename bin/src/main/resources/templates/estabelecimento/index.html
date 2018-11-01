@@ -32,7 +32,7 @@
 							<td th:text="${umestabelecimento.rua}"></td>
 							<td th:text="${umestabelecimento.numero}"></td>
 							<td th:text="${umestabelecimento.CNPJ}"></td>
-							<td th:text="${umestabelecimento.pagamento}"></td>
+							<td th:text="${umestabelecimento.pagamento.pay}"></td>
 						<td>
 							<a href="form.html" th:href="@{'/estabelecimento/alterar/' + ${umestabelecimento.idEstab}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
 							<a href="#" class="btn btn-warning btn-lg" role="button" data-toggle="modal" data-target="#confirmaExclusao" th:data-id="${umestabelecimento.idEstab}">Excluir</a>

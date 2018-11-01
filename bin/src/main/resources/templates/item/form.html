@@ -13,8 +13,12 @@
 					<input type="hidden" id="txtid" th:field="*{idItem}"/>
 					<div class="form-group">
 					<tr>
-						<th scope="col" align="center" for="txtprod">Item</th>
-						<td th="col"><input type="text" class="form-control" id="txtitem" th:field="*{item}" placeholder="Item"></td>
+						<th scope="col" align="center" for="txtitem">Item</th>
+						<td th="col"><input type="text" class="form-control" id="txtitem" th:field="*{nome}" placeholder="Item"></td>
+					</tr>
+					<tr>
+						<th scope="col" align="center" for="txtquantidade">Quantidade</th>
+						<td th="col"><input type="int" class="form-control" id="txtquantidade" th:field="*{quantidade}" placeholder="Quantidade"></td>
 					</tr>
 					<tr>
                         <th scope="col" align="center">Estabelecimento</th>

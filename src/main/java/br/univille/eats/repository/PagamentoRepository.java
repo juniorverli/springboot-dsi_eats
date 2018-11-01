@@ -7,6 +7,5 @@ import br.univille.eats.model.Pagamento;
 
 @Repository
 public interface PagamentoRepository extends JpaRepository<Pagamento, Long> {
-	
-    Pagamento findByPay(String pay);
+    Pagamento findById(long id);
 }

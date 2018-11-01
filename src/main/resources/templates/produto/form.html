@@ -13,16 +13,16 @@
 					<input type="hidden" id="txtid" th:field="*{idProd}"/>
 					<div class="form-group">
 					<tr>
-						<th scope="col" align="center" for="txtprod">Produto</th>
-						<td th="col"><input type="text" class="form-control" id="txtprod" th:field="*{prod}" placeholder="Produto"></td>
-					</tr>
-					<tr>
                         <th scope="col" align="center">Estabelecimento</th>
                         <td><select class="form-control" id="slcestab" th:field="*{estabelecimento}">
                             <option th:each="umestabelecimento : ${listaEstab}" th:value="${umestabelecimento.idEstab}" th:text="${umestabelecimento.razao}"></option>
                         </select>
                         </td>
                     </tr>
+                    <tr>
+						<th scope="col" align="center" for="txtprod">Produto</th>
+						<td th="col"><input type="text" class="form-control" id="txtprod" th:field="*{prod}" placeholder="Produto"></td>
+					</tr>
 						<td scope="col">
 							<button type="submit" class="btn btn-primary">Salvar Dados</button>
 						</td>

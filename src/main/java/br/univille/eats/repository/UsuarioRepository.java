@@ -7,5 +7,5 @@ import br.univille.eats.model.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-    Usuario findByUsername(String username);
+    Usuario findById(long id);
 }

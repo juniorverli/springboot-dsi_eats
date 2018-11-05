@@ -24,14 +24,14 @@ public class StartupEventListenerBean {
 	@EventListener
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 
-		if(cidadeRepository.findByNome("cidade") == null) {
+		if(cidadeRepository.findById(1) == null) {
 			Cidade cidade = new Cidade();
 			cidade.setNome("Joinville");
 			cidade.setEstado("SC");
 			cidadeRepository.save(cidade);
 		}
 
-		if(usuarioRepository.findByUsername("user") == null) {
+		if(usuarioRepository.findById(1) == null) {
 			Usuario user = new Usuario();
 			user.setUsername("admin");
 			user.setPassword("admin");
@@ -119,7 +119,81 @@ public class StartupEventListenerBean {
 			pay.setPay("Dinheiro/Débito/Crédito");
 			pagamentoRepository.save(pay);
 		}
-		
+		if(pagamentoRepository.findById(17) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Dinheiro/Débito/Vale Alimentação");
+			pagamentoRepository.save(pay);
+		}
+		if(pagamentoRepository.findById(18) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Dinheiro/Débito/Vale Refeição");
+			pagamentoRepository.save(pay);
+		}
+		if(pagamentoRepository.findById(19) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Dinheiro/Crédito/Vale Alimentação");
+			pagamentoRepository.save(pay);
+		}
+		if(pagamentoRepository.findById(20) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Dinheiro/Crédito/Vale Refeição");
+			pagamentoRepository.save(pay);
+		}
+		if(pagamentoRepository.findById(21) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Débito/Crédito/Vale Alimentação");
+			pagamentoRepository.save(pay);
+		}
+		if(pagamentoRepository.findById(22) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Débito/Crédito/Vale Refeição");
+			pagamentoRepository.save(pay);
+		}
+		if(pagamentoRepository.findById(23) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Débito/Vale Alimentação/Vale Refeição");
+			pagamentoRepository.save(pay);
+		}
+		if(pagamentoRepository.findById(24) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Crédito/Vale Alimentação/Vale Refeição");
+			pagamentoRepository.save(pay);
+		}
+		if(pagamentoRepository.findById(25) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Crédito/Vale Alimentação/Vale Refeição");
+			pagamentoRepository.save(pay);
+		}
+		if(pagamentoRepository.findById(26) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Dinheiro/Débito/Crédito/Vale Alimentação");
+			pagamentoRepository.save(pay);
+		}
+		if(pagamentoRepository.findById(27) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Dinheiro/Débito/Crédito/Vale Refeição");
+			pagamentoRepository.save(pay);
+		}
+		if(pagamentoRepository.findById(28) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Dinheiro/Débito/Vale Alimentação/Vale Refeição");
+			pagamentoRepository.save(pay);
+		}
+		if(pagamentoRepository.findById(29) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Dinheiro/Crédito/Vale Alimentação/Vale Refeição");
+			pagamentoRepository.save(pay);
+		}
+		if(pagamentoRepository.findById(30) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Débito/Crédito/Vale Alimentação/Vale Refeição");
+			pagamentoRepository.save(pay);
+		}
+		if(pagamentoRepository.findById(31) == null) {
+			Pagamento pay = new Pagamento();
+			pay.setPay("Dinheiro/Débito/Crédito/Vale Alimentação/Vale Refeição");
+			pagamentoRepository.save(pay);
+		}
 	}
 
 }

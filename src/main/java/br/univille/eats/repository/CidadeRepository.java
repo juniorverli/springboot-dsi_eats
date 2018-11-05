@@ -7,6 +7,6 @@ import br.univille.eats.model.Cidade;
 
 @Repository
 public interface CidadeRepository extends JpaRepository<Cidade, Long>{
-	Cidade findByNome(String cidade);
+	Cidade findById(long id);
 
 }

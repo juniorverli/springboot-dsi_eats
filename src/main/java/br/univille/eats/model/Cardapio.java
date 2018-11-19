@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -19,6 +20,11 @@ public class Cardapio{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long idCardapio;
+    
+
+    @Length(min=2, max=1000, message="O tamanho do nome deve ser entre {min} e {max}")
+	private String nome;
+    
 	@Temporal(value=TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date DataInicio;
@@ -40,6 +46,12 @@ public class Cardapio{
 	}
 	public void setIdCardapio(long idCardapio) {
 		this.idCardapio = idCardapio;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	public Date getDataInicio() {
 		return DataInicio;

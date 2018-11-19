@@ -9,8 +9,8 @@
 		<div class="border border-dark">
 
 			<table class="table">
-				<form th:action="@{/produto/(form)}" th:object="${produto}" action="#" method="post">
-					<input type="hidden" id="txtid" th:field="*{idProd}"/>
+				<form th:action="@{/itenscardapio/(form)}" th:object="${itenscardapio}" action="#" method="post">
+					<input type="hidden" id="txtid" th:field="*{id}"/>
 					<div class="form-group">
 					<tr>
                         <th scope="col" align="center">Estabelecimento</th>
@@ -19,10 +19,20 @@
                         </select>
                         </td>
                     </tr>
-                    <tr>
-						<th scope="col" align="center" for="txtprod">Produto</th>
-						<td th="col"><input type="text" class="form-control" id="txtprod" th:field="*{prod}" placeholder="Produto"></td>
-					</tr>
+					<tr>
+                        <th scope="col" align="center">Cardapio</th>
+                        <td><select class="form-control" id="slccardapio" th:field="*{cardapio}">
+                            <option th:each="umcardapio : ${listaCardapio}" th:value="${umcardapio.idCardapio}" th:text="${umcardapio.nome}"></option>
+                        </select>
+                        </td>
+                    </tr>
+					<tr>
+                        <th scope="col" align="center">Item do Cardápio</th>
+                        <td><select class="form-control" id="slcprod" th:field="*{produto}">
+                            <option th:each="umproduto : ${listaProd}" th:value="${umproduto.idProd}" th:text="${umproduto.nome}"></option>
+                        </select>
+                        </td>
+                    </tr>
 						<td scope="col">
 							<button type="submit" class="btn btn-primary">Salvar Dados</button>
 						</td>

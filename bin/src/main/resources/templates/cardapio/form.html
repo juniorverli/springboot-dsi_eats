@@ -10,6 +10,13 @@
 			<table class="table">
 				<form th:action="@{/cardapio/(form)}" th:object="${cardapio}" action="#" method="post">
 					<input type="hidden" id="txtid" th:field="*{idCardapio}"/>
+					<tr>
+                        <th scope="col" align="center">Estabelecimento</th>
+                        <td><select class="form-control" id="slcestab" th:field="*{estabelecimento}">
+                            <option th:each="umestabelecimento : ${listaEstab}" th:value="${umestabelecimento.idEstab}" th:text="${umestabelecimento.razao}"></option>
+                        </select>
+                        </td>
+                    </tr>
            			<tr>
                         <th scope="col" align="center">Data Inicio</th>
                         <td><div class="input-group date" id="datetimepicker1" data-target-input="nearest">

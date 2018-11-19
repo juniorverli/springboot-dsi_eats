@@ -21,7 +21,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-				<li class="nav-item active"><a class="nav-link" href="/">Home</a>
+				<li class="nav-item active"><a class="nav-link" href="/">Inicio</a>
 				</li>
 				<li class="nav-item active"><a class="nav-link"
 					href="/estabelecimento">Estabelecimento</a></li>
@@ -29,11 +29,11 @@
 				</li>
 				<li class="nav-item active"><a class="nav-link" href="/produto">Produto</a>
 				</li>
-				<li class="nav-item active"><a class="nav-link"
-					href="/cardapio">Cardapio</a></li>
+				<li class="nav-item active"><a class="nav-link" href="/cardapio">Cardapio</a></li>
+				<li class="nav-item active"><a class="nav-link" href="/item">Item</a></li>
+				<li class="nav-item active"><a class="nav-link" href="/Pedido">Pedido</a></li>
 			</ul>
-			<spawn th:inline="text" class="navbar-brand">Olá
-			[[${#httpServletRequest.remoteUser}]]!</spawn>
+			<spawn th:inline="text" class="navbar-brand">Olá [[${#httpServletRequest.remoteUser}]]!</spawn>
 			<form th:action="@{/logout}" method="post">
 				 <input type="submit" value="Sair"
 					class="btn" />
